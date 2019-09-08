@@ -23,9 +23,10 @@ APKTOOL is not needed anymore.
 
 ## Usage
 
-The script take two arguments: 
+The script takes the following arguments: 
 1) APK file path.
-2) keystore file path (**optional** - Default is: ~/.android/debug.keystore )
+2) Output path (**optional** - Default is: current working directory).
+3) keystore file path (**optional** - Default is: ~/.android/debug.keystore ).
 
 ### Examples
 

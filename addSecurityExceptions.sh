@@ -7,9 +7,9 @@ if [ $# -eq 0 ]
     echo "Usage: $0 <APK filename>"
     exit -1
 fi
-if [ ! -z "$2" ]
+if [ ! -z "$3" ]
 	then
-		debugKeystore=$2
+		debugKeystore=$3
 	else
     if [ ! -f ~/.android/debug.keystore ]; then
       if [ ! -d ~/.android ]; then
@@ -48,3 +48,8 @@ echo "Building new APK $newFileName"
 java -jar "$DIR/apktool.jar" b -o "./$newFileName" "$tmpDir"
 jarsigner -verbose -keystore $debugKeystore -storepass android -keypass android "./$newFileName" androiddebugkey
 
+if [ ! -z "$2" ]
+  then
+    cp "./$newFileName" "$2"
+    rm "./$newFileName"
+fi
